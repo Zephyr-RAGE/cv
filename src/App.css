@@ -1,0 +1,88 @@
+/* ===== Configuración general ===== */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000; /* fondo oscuro */
+  color: #ffffff;
+  font-family: "Fira Code", monospace; /* fuente estilo programador */
+}
+
+/* ===== Sección principal ===== */
+.bienvenida {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 3rem;
+  text-align: left;
+  padding: 0 2rem;
+}
+
+.subtitulo {
+  opacity: 0;
+  animation: aparecer 0.8s ease forwards;
+  animation-delay: 0.3s;
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-top: -0px;
+}
+
+
+/* Texto de bienvenida */
+.texto-bienvenida h1 {
+  font-size: 2.5rem;
+  color: #a259ff;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  animation: aparecer 1s ease;
+}
+
+.texto-bienvenida p {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #d1d1d1;
+}
+
+
+
+/* Animación de aparición suave */
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .bienvenida {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .texto-bienvenida h1 {
+    font-size: 2rem;
+  }
+
+  .foto-placeholder {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .subtitulo{
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+
+  }
+
+}
+
+html {
+  scroll-behavior: smooth; 
+}

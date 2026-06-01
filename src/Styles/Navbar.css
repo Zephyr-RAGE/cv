@@ -1,0 +1,102 @@
+/* ===== NAVBAR MODERNO CON ICONOS ===== */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1f1f1f;
+  padding: 1rem 3rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 1;
+}
+
+/* Estado oculto del navbar */
+.navbar.oculta {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+/* Estado visible del navbar */
+.navbar.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Lista de iconos */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 3rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* Iconos */
+.icono {
+  font-size: 1.8rem;
+  color: #ffffff;
+  transition: transform 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+/* Zoom suave al pasar el mouse */
+.icono:hover {
+  transform: scale(1.3);
+  color: #a259ff;
+}
+
+/* Fondo con efecto hover de navbar */
+.navbar:hover {
+  background-color: #2a2a2a;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 2rem;
+  }
+  .icono {
+    font-size: 1.5rem;
+  }
+}
+
+/* ===== Indicador del Navbar ===== */
+.indicador-navbar {
+  position: fixed;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #a259ff;
+  opacity: 0.7;
+  cursor: pointer;
+  z-index: 500;
+  animation: parpadeo 2s infinite ease-in-out;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.icono-indicador {
+  font-size: 1.3rem;
+}
+
+/* Efecto hover */
+.indicador-navbar:hover {
+  opacity: 1;
+  transform: translateX(-50%) scale(1.2);
+}
+
+/* Animación de pulso */
+@keyframes parpadeo {
+  0%, 100% {
+    opacity: 0.7;
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(4px);
+  }
+}
