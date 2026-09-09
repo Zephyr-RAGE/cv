@@ -11,13 +11,19 @@
   animation: scroll 25s linear infinite;
 }
 
+.carousel-track {
+  width: max-content;
+}
+
 .carousel-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   min-width: 110px;
   opacity: 0.8;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 
 .icon {

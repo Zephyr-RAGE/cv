@@ -1,8 +1,22 @@
 /* ===== Configuración general ===== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
 body {
   margin: 0;
   padding: 0;
   background-color: #000000; /* fondo oscuro */
+  height: 100%;
   color: #ffffff;
   font-family: "Fira Code", monospace; /* fuente estilo programador */
 }
@@ -27,7 +41,6 @@ body {
   margin-top: -0px;
 }
 
-
 /* Texto de bienvenida */
 .texto-bienvenida h1 {
   font-size: 2.5rem;
@@ -42,8 +55,6 @@ body {
   font-size: 1.2rem;
   color: #d1d1d1;
 }
-
-
 
 /* Animación de aparición suave */
 @keyframes aparecer {
@@ -60,6 +71,7 @@ body {
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   .bienvenida {
+    display: flex;
     flex-direction: column;
     text-align: center;
     gap: 2rem;
@@ -73,16 +85,14 @@ body {
     width: 160px;
     height: 160px;
   }
-  
-  .subtitulo{
+
+  .subtitulo {
     flex-direction: column;
     text-align: center;
     gap: 2rem;
-
   }
-
 }
 
 html {
-  scroll-behavior: smooth; 
+  scroll-behavior: smooth;
 }

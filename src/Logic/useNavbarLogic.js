@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 export function useNavbarLogic() {
   const [menuAbierto, setMenuAbierto] = useState(false);
@@ -15,11 +15,11 @@ export function useNavbarLogic() {
       }
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     // Limpiar el listener al desmontar el componente
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 

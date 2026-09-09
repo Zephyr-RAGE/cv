@@ -11,7 +11,9 @@
   right: 0;
   z-index: 1000;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  transition: transform 0.5s ease, opacity 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
   opacity: 1;
 }
 
@@ -40,7 +42,9 @@
 .icono {
   font-size: 1.8rem;
   color: #ffffff;
-  transition: transform 0.3s ease, color 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
   cursor: pointer;
 }
 
@@ -55,6 +59,36 @@
   background-color: #2a2a2a;
 }
 
+/* ===== Indicador del Navbar ===== */
+.indicador-navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #a259ff;
+  opacity: 0.7;
+  cursor: pointer;
+  z-index: 500;
+  animation: parpadeo 2s infinite ease-in-out;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.icono-indicador {
+  font-size: 1.8rem;
+}
+
+/* Efecto hover */
+.indicador-navbar:hover {
+  opacity: 1;
+  transform: translateX(-50%) scale(1.2);
+}
+
 /* Responsivo */
 @media (max-width: 768px) {
   .nav-links {
@@ -65,33 +99,10 @@
   }
 }
 
-/* ===== Indicador del Navbar ===== */
-.indicador-navbar {
-  position: fixed;
-  top: 5px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #a259ff;
-  opacity: 0.7;
-  cursor: pointer;
-  z-index: 500;
-  animation: parpadeo 2s infinite ease-in-out;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.icono-indicador {
-  font-size: 1.3rem;
-}
-
-/* Efecto hover */
-.indicador-navbar:hover {
-  opacity: 1;
-  transform: translateX(-50%) scale(1.2);
-}
-
 /* Animación de pulso */
 @keyframes parpadeo {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.7;
     transform: translateX(-50%) translateY(0);
   }

@@ -15,7 +15,7 @@ import {
 } from "react-icons/di";
 
 import { TbBrandNextjs, TbBrandTypescript } from "react-icons/tb";
-import { SiFlask, SiFastapi } from "react-icons/si";
+import { SiFastapi, SiSqlite } from "react-icons/si";
 
 const tools = [
   { name: "React", icon: <DiReact /> },
@@ -30,6 +30,7 @@ const tools = [
   { name: "PostgreSQL", icon: <DiPostgresql /> },
   { name: "Git", icon: <DiGit /> },
   { name: "GitHub", icon: <DiGithubBadge /> },
+  { name: "Sqlite", icon: <SiSqlite /> },
 ];
 
 const Carousel = () => {

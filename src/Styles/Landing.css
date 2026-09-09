@@ -1,0 +1,76 @@
+.contenido-principal {
+  width: 100%;
+  min-height: 100vh;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.trabajo-id {
+  width: 100%;
+  max-width: 1100px;
+  margin-top: 40px;
+}
+
+.trabajo-id h1 {
+  color: #ffffff;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.trabajo-id p {
+  color: #d6d6d6;
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  line-height: 1.9;
+  text-align: justify;
+}
+
+/* Tablets */
+
+@media (max-width: 992px) {
+  .contenido-principal {
+    padding: 50px 18px;
+  }
+
+  .trabajo-id {
+    margin-top: 30px;
+  }
+}
+
+/* Celulares */
+
+@media (max-width: 768px) {
+  .contenido-principal {
+    padding: 35px 15px;
+  }
+
+  .trabajo-id h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .trabajo-id p {
+    font-size: 1rem;
+    line-height: 1.8;
+    text-align: left;
+  }
+}
+
+/* Celulares pequeños */
+
+@media (max-width: 480px) {
+  .contenido-principal {
+    padding: 25px 12px;
+  }
+
+  .trabajo-id h1 {
+    font-size: 1.7rem;
+  }
+
+  .trabajo-id p {
+    font-size: 0.95rem;
+  }
+}

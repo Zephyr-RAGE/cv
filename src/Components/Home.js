@@ -1,22 +1,34 @@
 import React from "react";
 import AboutMe from "./AboutMe";
 import Carousel from "./Carousel";
+// import Trabajos from "./Trabajos";
+import Trabajos from "./Works";
 
 const Home = () => {
   return (
     <>
-      <section className="bienvenida">
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
+      />
+      <section className="bienvenida" id="Casa">
         <div className="texto-bienvenida">
-          <h1>Hola, soy Gustavo 👋</h1>
-          <h2 className="subtitulo">Frontend Developer • Diseñador UI/UX</h2>
+          <h1>
+            Hola, soy Gustavo <i class="ti ti-hand-love-you"></i>
+          </h1>
+
+          <h2 className="subtitulo">Fullstack Developer • Frontend</h2>
           <p className="descripcion">
-            Me apasiona crear experiencias visuales modernas y funcionales.
+            Me apasiona crear experiencias funcionales y atractivas.
           </p>
         </div>
       </section>
 
       <AboutMe />
-      <Carousel/>
+      <Carousel />
+      {/* <Trabajos /> */}
+      <Trabajos />
+      {/* <Reseñas /> */}
     </>
   );
 };
