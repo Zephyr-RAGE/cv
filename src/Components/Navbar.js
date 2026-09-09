@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { FaUser, FaCode, FaFolderOpen, FaEnvelope, FaChevronDown, FaHome } from "react-icons/fa";
+import {
+  FaUser,
+  FaCode,
+  FaEnvelope,
+  FaChevronDown,
+  FaHome,
+} from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import "../Styles/Navbar.css";
 
@@ -21,7 +27,8 @@ const Navbar = () => {
     };
 
     window.addEventListener("mousemove", manejarMovimientoMouse);
-    return () => window.removeEventListener("mousemove", manejarMovimientoMouse);
+    return () =>
+      window.removeEventListener("mousemove", manejarMovimientoMouse);
   }, []);
 
   // 🔥 Función para navegar dentro del Home
@@ -41,14 +48,16 @@ const Navbar = () => {
   return (
     <>
       {mostrarIndicador && (
-        <div className="indicador-navbar" title="Desplaza el cursor hacia arriba">
+        <div
+          className="indicador-navbar"
+          title="Desplaza el cursor hacia arriba"
+        >
           <FaChevronDown className="icono-indicador" />
         </div>
       )}
 
       <nav className={`navbar ${mostrarNavbar ? "visible" : "oculta"}`}>
         <ul className="nav-links">
-
           {/*  Casa */}
           <li>
             <a onClick={() => scrollToSection("Casa")}>
@@ -70,20 +79,12 @@ const Navbar = () => {
             </a>
           </li>
 
-          {/* 🟠 Proyectos */}
-          <li>
-            <a onClick={() => scrollToSection("proyectos")}>
-              <FaFolderOpen className="icono" title="Proyectos" />
-            </a>
-          </li>
-
           {/* 🟢 Contacto (Ruta real) */}
           <li>
             <Link to="/Contacto">
               <FaEnvelope className="icono" title="Contacto" />
             </Link>
           </li>
-
         </ul>
       </nav>
     </>
