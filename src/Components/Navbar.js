@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   FaUser,
   FaCode,
@@ -60,21 +60,24 @@ const Navbar = () => {
         <ul className="nav-links">
           {/*  Casa */}
           <li>
-            <a onClick={() => scrollToSection("Casa")}>
-              <FaHome className="icono" title="Casa" />
+            <a href="#Casa" onClick={() => scrollToSection("Casa")}>
+              <FaHome className="icono" title="Casaxd" />
             </a>
           </li>
 
           {/* 🔵 Sobre mí */}
           <li>
-            <a onClick={() => scrollToSection("SobreMi")}>
+            <a href="#SobreMi" onClick={() => scrollToSection("SobreMi")}>
               <FaUser className="icono" title="Acerca de mí" />
             </a>
           </li>
 
           {/* 🟣 Habilidades */}
           <li>
-            <a onClick={() => scrollToSection("Habilidades")}>
+            <a
+              href="#Habilidades"
+              onClick={() => scrollToSection("Habilidades")}
+            >
               <FaCode className="icono" title="Conocimientos y habilidades" />
             </a>
           </li>
