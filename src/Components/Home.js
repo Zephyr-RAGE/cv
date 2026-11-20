@@ -14,13 +14,18 @@ const Home = () => {
       <section className="bienvenida" id="Casa">
         <div className="texto-bienvenida">
           <h1>
-            Hola, soy Gustavo <i class="ti ti-hand-love-you"></i>
+            Hola, soy Gustavo <i className="ti ti-hand-love-you"></i>
           </h1>
 
           <h2 className="subtitulo">Fullstack Developer • Frontend</h2>
+
           <p className="descripcion">
             Me apasiona crear experiencias funcionales y atractivas.
           </p>
+        </div>
+
+        <div className="shadow-dance-container">
+          <h1 className="shadow-dance-text">DEV</h1>
         </div>
       </section>
 
