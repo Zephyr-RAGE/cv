@@ -1,4 +1,36 @@
-/* ===== Configuración general ===== */
+/* =========================================
+   CRIMSON INTERFACE — IDENTIDAD VISUAL
+========================================= */
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap");
+
+:root {
+  /* PALETA PRINCIPAL */
+  --color-primary: #701f38;
+  --color-primary-hover: #8b2b49;
+  --color-primary-light: #a94c68;
+
+  /* FONDOS */
+  --color-background: #171719;
+  --color-surface: #222126;
+  --color-surface-light: #29282d;
+
+  /* TEXTOS */
+  --color-cream: #f1e7d5;
+  --color-text: #e8e3dc;
+  --color-text-muted: #aaa4a0;
+
+  /* COLORES SECUNDARIOS */
+  --color-copper: #b88b75;
+  --color-sage: #a9b4ad;
+
+  /* EFECTOS */
+  --shadow-primary: 0 0 25px rgba(112, 31, 56, 0.35);
+  --border-subtle: rgba(241, 231, 213, 0.12);
+}
+
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
 
 *,
 *::before,
@@ -10,71 +42,196 @@ html,
 body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  min-height: 100%;
   overflow-x: hidden;
-}
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #000000; /* fondo oscuro */
-  height: 100%;
-  color: #ffffff;
-  font-family: "Fira Code", monospace; /* fuente estilo programador */
+  scroll-behavior: smooth;
 }
 
-/* ===== Sección principal ===== */
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: "Inter", sans-serif;
+}
+
+/* =========================================
+   SECCIÓN PRINCIPAL — BIENVENIDA
+========================================= */
+
 .bienvenida {
+  position: relative;
+  isolation: isolate;
+
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  gap: 3rem;
-  text-align: left;
-  padding: 0 2rem;
+
+  min-height: 100vh;
+  gap: 0;
+  padding: 1rem 2rem;
+  text-align: center;
+
+  background: #8b2b49;
+
+  overflow: hidden;
 }
+
+/* =========================================
+   SUBTÍTULOS
+========================================= */
 
 .subtitulo {
   opacity: 0;
   animation: aparecer 0.8s ease forwards;
   animation-delay: 0.3s;
+
   font-size: 1.5rem;
-  color: #ffffff;
-  margin-top: -0px;
+  color: var(--color-cream);
+  margin-top: 0;
 }
 
-/* Texto de bienvenida */
+/* =========================================
+   TEXTO DE BIENVENIDA
+========================================= */
+
 .texto-bienvenida h1 {
-  font-size: 2.5rem;
-  color: #a259ff;
+  font-size: 3.2rem;
+  color: var(--color-cream);
+
   margin-bottom: 1rem;
   letter-spacing: 1px;
+
   animation: aparecer 1s ease;
 }
 
 .texto-bienvenida p {
   text-align: center;
-  font-size: 1.2rem;
-  color: #d1d1d1;
+  font-size: 1.1rem;
+  line-height: 1.8;
+
+  color: var(--color-text-muted);
 }
 
-/* Animación de aparición suave */
+/* ==============================
+   SHADOW DANCE - DEV
+================================ */
+
+.shadow-dance-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 1rem 2rem;
+
+  overflow: hidden;
+}
+
+.shadow-dance-text {
+  margin: 0;
+
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(2rem, 10vw, 5rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+
+  color: var(--color-cream);
+
+  text-shadow:
+    5px 5px 0 var(--color-primary),
+    10px 10px 0 var(--color-copper);
+
+  animation: shadowDance 2s ease-in-out infinite;
+}
+
+/* ==============================
+   ANIMACIÓN DE SOMBRAS
+================================ */
+
+@keyframes shadowDance {
+  0%,
+  100% {
+    text-shadow:
+      5px 5px 0 var(--color-primary),
+      10px 10px 0 var(--color-copper);
+  }
+
+  50% {
+    text-shadow:
+      -5px -5px 0 var(--color-copper),
+      -10px -10px 0 var(--color-primary);
+  }
+}
+
+/* ==============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 768px) {
+  .shadow-dance-container {
+    padding: 1.5rem 1rem 4rem;
+  }
+
+  .shadow-dance-text {
+    font-size: clamp(5rem, 20vw, 9rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .shadow-dance-container {
+    padding: 1rem 1rem 3rem;
+  }
+
+  .shadow-dance-text {
+    font-size: 5rem;
+    letter-spacing: 0.08em;
+  }
+}
+
+/* ACCESIBILIDAD */
+/* 
+@media (prefers-reduced-motion: reduce) {
+  .shadow-dance-text {
+    animation: none;
+  }
+} */
+
+/* =========================================
+   ANIMACIONES
+========================================= */
+
 @keyframes aparecer {
   from {
     opacity: 0;
     transform: translateY(15px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* ===== Responsive ===== */
+/* =========================================
+   DETALLES VISUALES GENERALES
+========================================= */
+
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-cream);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
 @media (max-width: 768px) {
   .bienvenida {
-    display: flex;
     flex-direction: column;
     text-align: center;
     gap: 2rem;
+
+    padding: 4rem 1.5rem;
   }
 
   .texto-bienvenida h1 {
@@ -91,8 +248,4 @@ body {
     text-align: center;
     gap: 2rem;
   }
-}
-
-html {
-  scroll-behavior: smooth;
 }

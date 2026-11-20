@@ -1,113 +1,250 @@
-/* ===== NAVBAR MODERNO CON ICONOS ===== */
-.navbar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #1f1f1f;
-  padding: 1rem 3rem;
+/* =========================================
+   CRIMSON — LUNAR NAVIGATION
+========================================= */
+
+.navbar-container {
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  transition:
-    transform 0.5s ease,
-    opacity 0.5s ease;
-  opacity: 1;
-}
-
-/* Estado oculto del navbar */
-.navbar.oculta {
-  transform: translateY(-100%);
-  opacity: 0;
-}
-
-/* Estado visible del navbar */
-.navbar.visible {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-/* Lista de iconos */
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 3rem;
-  margin: 0;
-  padding: 0;
-}
-
-/* Iconos */
-.icono {
-  font-size: 1.8rem;
-  color: #ffffff;
-  transition:
-    transform 0.3s ease,
-    color 0.3s ease;
-  cursor: pointer;
-}
-
-/* Zoom suave al pasar el mouse */
-.icono:hover {
-  transform: scale(1.3);
-  color: #a259ff;
-}
-
-/* Fondo con efecto hover de navbar */
-.navbar:hover {
-  background-color: #2a2a2a;
-}
-
-/* ===== Indicador del Navbar ===== */
-.indicador-navbar {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 5px;
   left: 50%;
   transform: translateX(-50%);
-  color: #a259ff;
-  opacity: 0.7;
-  cursor: pointer;
-  z-index: 500;
-  animation: parpadeo 2s infinite ease-in-out;
+
+  width: min(420px, 100vw);
+  height: 160px;
+
+  z-index: 1000;
+}
+
+/* =========================================
+   MEDIA LUNA
+========================================= */
+
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 145px;
+
+  background: rgba(34, 33, 38, 0.97);
+
+  border: 1px solid rgba(112, 31, 56, 0.7);
+  border-top: none;
+
+  border-radius: 0 0 50% 50% / 0 0 75% 75%;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.35),
+    0 5px 20px rgba(112, 31, 56, 0.12);
+
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Menú cerrado */
+
+.navbar-container.cerrado .navbar {
+  transform: translateY(-125px);
+}
+
+/* Menú abierto */
+
+.navbar-container.abierto .navbar {
+  transform: translateY(0);
+}
+
+/* =========================================
+   DISTRIBUCIÓN DE OPCIONES
+========================================= */
+
+.nav-links {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+/* Posiciones siguiendo la curva */
+
+.nav-inicio {
+  left: 12%;
+  top: 38px;
+}
+
+.nav-perfil {
+  left: 34%;
+  top: 76px;
+}
+
+.nav-skills {
+  left: 66%;
+  top: 76px;
+}
+
+.nav-contacto {
+  left: 88%;
+  top: 38px;
+}
+
+/* =========================================
+   ICONOS Y ETIQUETAS
+========================================= */
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  min-width: 65px;
+
+  color: var(--color-cream);
+  text-decoration: none;
+
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+
   transition:
-    opacity 0.3s ease,
+    color 0.3s ease,
     transform 0.3s ease;
 }
 
-.icono-indicador {
-  font-size: 1.8rem;
+.nav-item .icono {
+  font-size: 1.45rem;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease,
+    filter 0.3s ease;
 }
 
-/* Efecto hover */
-.indicador-navbar:hover {
-  opacity: 1;
-  transform: translateX(-50%) scale(1.2);
+/* Hover */
+
+.nav-item:hover {
+  color: #c36a83;
+  transform: translateY(-3px);
 }
 
-/* Responsivo */
-@media (max-width: 768px) {
-  .nav-links {
-    gap: 2rem;
+.nav-item:hover .icono {
+  color: #c36a83;
+
+  filter: drop-shadow(0 0 7px rgba(169, 76, 104, 0.65));
+}
+
+/* =========================================
+   BOTÓN DE APERTURA
+========================================= */
+
+.navbar-trigger {
+  position: absolute;
+  top: 0;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 34px;
+  height: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--color-cream);
+
+  background: var(--color-primary);
+
+  border: none;
+  border-radius: 0 0 8px 8px;
+
+  cursor: pointer;
+  z-index: 2;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.navbar-trigger:hover {
+  background: var(--color-primary-hover);
+  color: white;
+}
+
+.navbar-trigger svg {
+  font-size: 0.7rem;
+
+  transition: transform 0.35s ease;
+}
+
+.navbar-container.abierto .navbar-trigger svg {
+  transform: rotate(180deg);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 480px) {
+  .navbar-container {
+    width: 100%;
   }
-  .icono {
-    font-size: 1.5rem;
+
+  .navbar {
+    height: 130px;
+  }
+
+  .navbar-container.cerrado .navbar {
+    transform: translateY(-112px);
+  }
+
+  .nav-inicio {
+    left: 12%;
+    top: 34px;
+  }
+
+  .nav-perfil {
+    left: 34%;
+    top: 66px;
+  }
+
+  .nav-skills {
+    left: 66%;
+    top: 66px;
+  }
+
+  .nav-contacto {
+    left: 88%;
+    top: 34px;
+  }
+
+  .nav-item {
+    min-width: 55px;
+    font-size: 0.65rem;
+  }
+
+  .nav-item .icono {
+    font-size: 1.25rem;
   }
 }
 
-/* Animación de pulso */
-@keyframes parpadeo {
-  0%,
-  100% {
-    opacity: 0.7;
-    transform: translateX(-50%) translateY(0);
-  }
-  50% {
-    opacity: 1;
-    transform: translateX(-50%) translateY(4px);
-  }
+.navbar-container.cerrado .navbar {
+  transform: translateY(-145px);
+}
+
+.navbar-container.cerrado .navbar {
+  transform: translateY(-130px);
 }
