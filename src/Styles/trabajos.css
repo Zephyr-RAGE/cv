@@ -1,146 +1,228 @@
+/* ==============================
+   CONTENEDOR PRINCIPAL
+================================ */
+
 .trabajos-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #100f0f;
+  padding: 6rem 8%;
+  background:
+    radial-gradient(circle at 10% 50%, rgba(112, 31, 56, 0.1), transparent 35%),
+    var(--color-background);
 }
 
-.titulos {
-  margin: 2rem;
-  text-align: center;
-
-  color: #a259ff;
-}
-
-.trabajos-container h2 {
-  display: block;
-  font-size: 2rem;
-  text-align: center;
-  color: #a259ff;
-}
+/* ==============================
+   ENCABEZADO
+================================ */
 
 .proyectos-id {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 30px;
-  padding: 20px;
+  width: 100%;
 }
+
+.projects-heading {
+  margin-bottom: 3.5rem;
+}
+
+.projects-overline {
+  color: var(--color-primary-light);
+  font-family: "Fira Code", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+}
+
+.projects-heading h2 {
+  margin: 0.8rem 0;
+  color: var(--color-cream);
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+}
+
+.projects-heading h2 span {
+  color: var(--color-primary-light);
+}
+
+.projects-heading p {
+  max-width: 550px;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+/* ==============================
+   LISTADO DE PROYECTOS
+================================ */
 
 .portafolio-id {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-top: 3rem;
-  margin-bottom: 5rem;
-}
-
-.imagen-id {
-  display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 1.2rem;
+}
+
+/* ==============================
+   TARJETA
+================================ */
+
+.project-card {
+  display: grid;
+  grid-template-columns: minmax(220px, 35%) 1fr;
   align-items: center;
-  width: 400px;
-  padding: 1.5rem 1rem 0rem 3.5rem;
-}
+  gap: 2rem;
 
-.texto-id {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 0rem 3rem 0rem 1rem;
-  margin: 0rem 0.9rem 0rem 3.5rem;
-  background-color: #1f1f1f;
-  height: 100%;
-}
+  padding: 1rem;
 
-.informacion-id:hover {
-  transform: scale(1.1);
-  transition: transform 0.3s ease; /* Hace que la animación sea suave */
-  object-fit: cover;
-}
+  background: var(--color-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
 
-.links-id {
   text-decoration: none;
-  color: #ffffff;
+
+  transition:
+    border-color 0.35s ease,
+    background 0.35s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
 }
+
+/* ==============================
+   IMAGEN
+================================ */
+
+.project-image-container {
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  border-radius: 5px;
+  background: var(--color-surface-light);
+}
+
+.project-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  transition: transform 0.5s ease;
+}
+
+/* ==============================
+   INFORMACIÓN
+================================ */
+
+.project-information {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.2rem;
+  min-width: 0;
+}
+
+.project-number {
+  color: var(--color-primary-light);
+  font-family: "Fira Code", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 1.5px;
+}
+
+.project-text h3 {
+  margin-bottom: 0.4rem;
+  color: var(--color-cream);
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.project-text p {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.project-arrow {
+  align-self: flex-end;
+  color: var(--color-primary-light);
+  font-size: 1.5rem;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+/* ==============================
+   INTERACCIÓN
+================================ */
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-primary-light);
+  background: #292329;
+  box-shadow: var(--shadow-primary);
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.06);
+}
+
+.project-card:hover .project-arrow {
+  color: var(--color-cream);
+  transform: translate(4px, -4px);
+}
+
+/* ==============================
+   TABLET
+================================ */
 
 @media (max-width: 768px) {
-  .informacion-id:hover {
-    transform: scale(1);
+  .trabajos-container {
+    padding: 5rem 6%;
   }
 
-  .portafolio-id {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-right: 2.4rem;
-    align-items: center;
+  .project-card {
+    grid-template-columns: minmax(180px, 40%) 1fr;
+    gap: 1.2rem;
   }
 
-  .informacion-id {
-    padding: 10px;
+  .project-image-container {
+    height: 160px;
   }
 
-  .texto-id {
-    height: 100%;
-  }
-
-  .imagen-id {
-    width: 500px;
-  }
-
-  .trabajos-container h2 {
-    display: block;
+  .project-text h3 {
     font-size: 1.5rem;
-    text-align: center;
-    color: #a259ff;
   }
 }
 
-@media (max-width: 480px) {
-  .informacion-id:hover {
-    transform: scale(1);
+/* ==============================
+   CELULAR
+================================ */
+
+@media (max-width: 520px) {
+  .trabajos-container {
+    padding: 4rem 5%;
   }
 
-  .portafolio-id {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-right: 2.4rem;
-    align-items: center;
+  .projects-heading {
+    margin-bottom: 2rem;
   }
 
-  .proyectos-id h2 {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-
-    align-items: center;
-    justify-content: center;
-    gap: 3rem;
+  .project-card {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0.8rem;
   }
 
-  .trabajos-container h2 {
-    display: block;
-    font-size: 1rem;
-    text-align: center;
-    color: #a259ff;
+  .project-image-container {
+    height: 190px;
   }
 
-  .informacion-id {
-    padding: 20px;
+  .project-information {
+    gap: 0.7rem;
+    padding: 0.3rem;
   }
 
-  .texto-id {
-    height: 100%;
+  .project-text h3 {
+    font-size: 1.4rem;
   }
 
-  .imagen-id {
-    width: 400px;
+  .project-arrow {
+    font-size: 1.2rem;
   }
 }
+
+/* ==============================
+   ACCESIBILIDAD
+================================ */

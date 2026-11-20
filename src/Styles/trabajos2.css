@@ -1,0 +1,51 @@
+/* ==============================
+   OTROS DESARROLLOS
+================================ */
+
+.additional-projects {
+  margin-top: 6rem;
+  padding-top: 4rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.additional-projects-heading {
+  margin-bottom: 3rem;
+}
+
+.additional-projects-heading h2 {
+  margin: 0.8rem 0;
+  color: var(--color-cream);
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+}
+
+.additional-projects-heading h2 span {
+  color: var(--color-primary-light);
+}
+
+.additional-projects-heading p {
+  max-width: 550px;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.additional-projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .additional-projects {
+    margin-top: 4rem;
+    padding-top: 3rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .additional-projects {
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+  }
+}

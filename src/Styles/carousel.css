@@ -1,52 +1,463 @@
-.carousel-container {
-  width: 100%;
+/* ==============================
+   ARSENAL PRINCIPAL
+================================ */
+
+.arsenal-container {
+  padding: 6rem 8%;
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(112, 31, 56, 0.12),
+      transparent 35%
+    ),
+    var(--color-background);
   overflow: hidden;
-  padding: 1.5rem 0;
-  background: transparent;
 }
 
-.carousel-track {
+/* ==============================
+   ENCABEZADO
+================================ */
+
+.arsenal-header {
   display: flex;
-  gap: 3rem;
-  animation: scroll 25s linear infinite;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  margin-bottom: 4rem;
 }
 
-.carousel-track {
-  width: max-content;
+.arsenal-overline {
+  color: var(--color-primary-light);
+  font-family: "Fira Code", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
 }
 
-.carousel-item {
+.arsenal-heading h2 {
+  margin: 0.8rem 0;
+  color: var(--color-cream);
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+}
+
+.arsenal-heading h2 span {
+  color: var(--color-primary-light);
+}
+
+.arsenal-heading p {
+  color: var(--color-text-muted);
+  max-width: 520px;
+  line-height: 1.7;
+}
+
+.arsenal-counter {
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+  font-family: "Fira Code", monospace;
+}
+
+.arsenal-counter span,
+.arsenal-counter small {
+  color: var(--color-text-muted);
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+}
+
+.arsenal-counter strong {
+  color: var(--color-cream);
+  font-family: "Rajdhani", sans-serif;
+  font-size: 3.5rem;
+  line-height: 1;
+}
+
+/* ==============================
+   CATEGORÍAS
+================================ */
+
+.arsenal-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.arsenal-category {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* BOTÓN DEL ENCABEZADO */
+
+.category-trigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  min-width: 110px;
-  opacity: 0.8;
+  gap: 1rem;
+
+  padding: 1.5rem 0;
+
+  border: none;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* INFORMACIÓN DE CATEGORÍA */
+
+.category-title {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* ==============================
+   CÍRCULO BEIGE
+================================ */
+
+.category-number {
+  position: relative;
+  isolation: isolate;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 55px;
+  height: 55px;
+  min-width: 55px;
+
+  border-radius: 50%;
+  background: var(--color-cream);
+  color: var(--color-primary);
+
+  font-family: "Fira Code", monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* ARO BLANCO GIRATORIO */
+
+.category-number::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+
+  border: 2px solid transparent;
+  border-top-color: #ffffff;
+  border-right-color: rgba(255, 255, 255, 0.2);
+
+  border-radius: 50%;
+  animation: circleLoading 2s linear infinite;
+}
+
+/* ROTACIÓN DEL ARO */
+
+@keyframes circleLoading {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* INFORMACIÓN */
+
+.category-information h3 {
+  color: var(--color-cream);
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.35rem;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.25rem;
+}
+
+.category-information p {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* CONTADOR E INDICADOR */
+
+.category-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.category-count {
+  color: var(--color-text-muted);
+  font-family: "Fira Code", monospace;
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
+.category-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+
+  color: var(--color-cream);
+  border: 1px solid var(--border-subtle);
+  border-radius: 50%;
+
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+/* HOVER DEL ENCABEZADO */
+
+.category-trigger:hover .category-number,
+.arsenal-category.is-open .category-number {
+  transform: scale(1.08);
+  box-shadow: 0 0 22px rgba(241, 231, 213, 0.2);
+}
+
+.category-trigger:hover .category-indicator,
+.arsenal-category.is-open .category-indicator {
+  color: var(--color-cream);
+  border-color: var(--color-primary-light);
+  background: rgba(112, 31, 56, 0.25);
+}
+
+/* ==============================
+   PANEL DE TECNOLOGÍAS
+================================ */
+
+.technology-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    grid-template-rows 0.45s ease,
+    opacity 0.35s ease,
+    visibility 0.35s ease;
+}
+
+.technology-panel > .technology-grid {
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* ABRIR POR CLICK */
+
+.arsenal-category.is-open .technology-panel {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ABRIR POR HOVER EN DISPOSITIVOS CON MOUSE */
+
+@media (hover: hover) and (pointer: fine) {
+  .arsenal-category:hover .technology-panel {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* ==============================
+   TARJETAS
+================================ */
+
+.technology-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+  gap: 14px;
+
+  padding: 0.5rem 0 2rem;
+}
+
+.technology-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+
+  min-height: 125px;
+  padding: 1rem;
+
+  background: var(--color-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+
   transition:
     transform 0.3s ease,
-    opacity 0.3s ease;
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.icon {
-  font-size: 3.5rem;
-  filter: drop-shadow(0px 0px 6px #a259ff);
+.technology-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 2.8rem;
+  color: var(--color-text-muted);
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
-.carousel-item p {
-  margin-top: 0.4rem;
-  font-size: 0.9rem;
-  color: #d9d9d9;
+.technology-name {
+  color: var(--color-cream);
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
-.carousel-item:hover {
-  transform: scale(1.15);
-  opacity: 1;
+/* HOVER DE TECNOLOGÍAS */
+
+.technology-card:hover {
+  transform: translateY(-5px);
+  background: #292329;
+  border-color: var(--color-primary-light);
+  box-shadow: var(--shadow-primary);
 }
 
-@keyframes scroll {
-  from {
-    transform: translateX(0);
+.technology-card:hover .technology-icon {
+  color: var(--color-primary-light);
+  transform: scale(1.12);
+}
+
+/* ==============================
+   PIE
+================================ */
+
+.arsenal-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+
+  border-top: 1px solid var(--border-subtle);
+
+  color: var(--color-text-muted);
+  font-family: "Fira Code", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+}
+
+/* ==============================
+   TABLET
+================================ */
+
+@media (max-width: 768px) {
+  .arsenal-container {
+    padding: 5rem 6%;
   }
-  to {
-    transform: translateX(-50%);
+
+  .arsenal-header {
+    align-items: flex-start;
+  }
+
+  .category-title {
+    gap: 1rem;
+  }
+
+  .technology-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* ==============================
+   CELULAR
+================================ */
+
+@media (max-width: 480px) {
+  .arsenal-container {
+    padding: 4rem 5%;
+  }
+
+  .arsenal-header {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .arsenal-counter {
+    align-items: flex-start;
+  }
+
+  .category-trigger {
+    padding: 1.2rem 0;
+  }
+
+  .category-title {
+    gap: 0.9rem;
+  }
+
+  .category-number {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    font-size: 0.75rem;
+  }
+
+  .category-information h3 {
+    font-size: 1rem;
+  }
+
+  .category-information p {
+    font-size: 0.72rem;
+  }
+
+  .category-count {
+    display: none;
+  }
+
+  .category-meta {
+    gap: 0.5rem;
+  }
+
+  .technology-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .technology-card {
+    min-height: 110px;
+  }
+
+  .arsenal-footer {
+    flex-direction: column;
+    font-size: 0.58rem;
+  }
+}
+
+/* ==============================
+   ACCESIBILIDAD
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  /* .category-number::after {
+    animation: none;
+  } */
+
+  .technology-panel,
+  .technology-card,
+  .technology-icon,
+  .category-number {
+    transition: none;
   }
 }
