@@ -1,180 +1,278 @@
-.gallery-container {
-  position: relative;
+.gallery {
   width: 100%;
   max-width: 1100px;
   margin: 40px auto 80px;
+  outline: none;
+}
+
+/* VISOR PRINCIPAL */
+
+.gallery-container {
+  position: relative;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  border-radius: 15px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-primary);
+  touch-action: pan-y;
 }
 
 .gallery-image {
-  width: 100%;
-  height: auto;
   display: block;
+  width: 100%;
+  max-height: 680px;
   object-fit: contain;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-  transition: opacity 0.3s ease-in-out;
   user-select: none;
+  transition: opacity 0.3s ease;
+  animation: galleryAppear 0.35s ease;
 }
 
-/* Flechas */
+@keyframes galleryAppear {
+  from {
+    opacity: 0.5;
+    transform: scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* FLECHAS */
 
 .gallery-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 55px;
-  height: 55px;
-  border: none;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.65);
-  color: white;
-  font-size: 1.7rem;
-  cursor: pointer;
-  transition: 0.3s;
   z-index: 2;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 48px;
+  height: 48px;
+
+  border: 1px solid var(--border-subtle);
+  border-radius: 50%;
+
+  background: rgba(23, 23, 25, 0.85);
+  color: var(--color-cream);
+
+  font-size: 1.3rem;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
 }
 
-.gallery-btn:hover {
-  background: #1da1f2;
-  transform: translateY(-50%) scale(1.08);
+.gallery-btn:hover:not(:disabled) {
+  background: var(--color-primary);
+  border-color: var(--color-copper);
+  box-shadow: var(--shadow-primary);
 }
 
-.gallery-btn:active {
-  transform: translateY(-50%) scale(0.95);
+.gallery-btn:active:not(:disabled) {
+  transform: translateY(-50%) scale(0.93);
 }
 
-.left {
-  left: 20px;
+.gallery-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
 }
 
-.right {
-  right: 20px;
+.gallery-btn.left {
+  left: 18px;
 }
 
-/* Contador */
+.gallery-btn.right {
+  right: 18px;
+}
+
+/* CONTADOR */
 
 .gallery-counter {
   position: absolute;
-  bottom: -40px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: white;
-  font-size: 0.95rem;
-  font-weight: 500;
-}
+  bottom: 16px;
+  right: 18px;
 
-/* Indicadores */
-
-.gallery-dots {
-  position: absolute;
-  bottom: -75px;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  align-items: center;
   gap: 8px;
+
+  padding: 8px 13px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+
+  background: rgba(23, 23, 25, 0.88);
+  color: var(--color-cream);
+
+  font-family: "Fira Code", monospace;
+  font-size: 0.85rem;
+}
+
+.gallery-counter-divider {
+  color: var(--color-copper);
+}
+
+/* MINIATURAS */
+
+.gallery-thumbnails {
+  display: flex;
+  gap: 12px;
   width: 100%;
-  max-width: 700px;
+  margin-top: 18px;
+  padding: 5px 2px 12px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) var(--color-surface);
 }
 
-.dot {
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background: #666;
+.gallery-thumbnail {
+  flex: 0 0 115px;
+  height: 75px;
+
+  padding: 0;
+  overflow: hidden;
+
+  border: 2px solid var(--border-subtle);
+  border-radius: 8px;
+
+  background: var(--color-surface);
   cursor: pointer;
-  transition: 0.3s;
+
+  opacity: 0.65;
+  transition: all 0.25s ease;
 }
 
-.dot:hover {
-  background: white;
+.gallery-thumbnail img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
-.dot.active {
-  background: #1da1f2;
-  transform: scale(1.3);
+.gallery-thumbnail:hover {
+  opacity: 1;
+  border-color: var(--color-copper);
 }
 
-/* Tablet */
+.gallery-thumbnail.active {
+  opacity: 1;
+  border-color: var(--color-primary-light);
+  box-shadow: 0 0 12px rgba(112, 31, 56, 0.5);
+}
+
+/* ESTADO VACÍO */
+
+.gallery-empty {
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--color-text-muted);
+  background: var(--color-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+}
+
+/* TABLET */
 
 @media (max-width: 992px) {
-  .gallery-container {
+  .gallery {
+    width: 95%;
     margin: 30px auto 70px;
   }
 
-  .gallery-btn {
-    width: 48px;
-    height: 48px;
-    font-size: 1.4rem;
-  }
-
-  .left {
-    left: 10px;
-  }
-
-  .right {
-    right: 10px;
+  .gallery-thumbnail {
+    flex-basis: 100px;
+    height: 68px;
   }
 }
 
-/* Celular */
+/* CELULAR */
 
 @media (max-width: 768px) {
-  .gallery-container {
+  .gallery {
     width: 95%;
-    margin: 20px auto 70px;
+    margin: 20px auto 55px;
   }
 
-  .gallery-image {
+  .gallery-container {
     border-radius: 10px;
   }
 
+  .gallery-image {
+    max-height: 480px;
+  }
+
   .gallery-btn {
-    width: 42px;
-    height: 42px;
-    font-size: 1.2rem;
-    background: rgba(0, 0, 0, 0.75);
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+    background: rgba(23, 23, 25, 0.88);
+  }
+
+  .gallery-btn.left {
+    left: 8px;
+  }
+
+  .gallery-btn.right {
+    right: 8px;
   }
 
   .gallery-counter {
-    bottom: -32px;
-    font-size: 0.9rem;
+    bottom: 10px;
+    right: 10px;
+    font-size: 0.75rem;
+    padding: 6px 9px;
   }
 
-  .gallery-dots {
-    bottom: -60px;
-    gap: 6px;
+  .gallery-thumbnails {
+    gap: 9px;
+    margin-top: 12px;
   }
 
-  .dot {
-    width: 9px;
-    height: 9px;
+  .gallery-thumbnail {
+    flex-basis: 85px;
+    height: 60px;
   }
 }
 
-/* Celulares pequeños */
+/* CELULARES PEQUEÑOS */
 
 @media (max-width: 480px) {
-  .gallery-container {
-    width: 100%;
-    margin: 15px auto 60px;
+  .gallery-image {
+    max-height: 360px;
   }
 
   .gallery-btn {
-    width: 36px;
-    height: 36px;
-    font-size: 1rem;
+    width: 33px;
+    height: 33px;
+    font-size: 0.9rem;
   }
 
-  .left {
-    left: 6px;
+  .gallery-thumbnail {
+    flex-basis: 72px;
+    height: 52px;
+  }
+}
+
+/* ACCESIBILIDAD */
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-image {
+    animation: none;
+    transition: none;
   }
 
-  .right {
-    right: 6px;
+  .gallery-btn,
+  .gallery-thumbnail {
+    transition: none;
   }
 }

@@ -9,6 +9,7 @@ import Website from "./Components/Website";
 import Landing from "./Components/PaginaWeb";
 import Gestor from "./Components/Gestor";
 import LogisticaBackend from "./Components/logisticaBackend";
+import Viajero from "./Components/Viajero";
 import "./App.css";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/Landing" element={<Landing />} />
           <Route path="/Gestor" element={<Gestor />} />
           <Route path="/LogisticaBackend" element={<LogisticaBackend />} />
+          <Route path="/Viajero" element={<Viajero />} />
         </Routes>
       </div>
     </Router>

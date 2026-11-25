@@ -15,9 +15,9 @@ const additionalProjects = [
     id: "05",
     title: "Pagina del viajero",
     description: "Angular, Typescript, Python, FastAPI, Alembic, PostgresQL",
-    image: "/portafolio1.jpeg",
+    image: "/viajes.jpeg",
     alt: "Vista previa de proyecto",
-    route: "/logisticaBackend",
+    route: "/viajero",
   },
 ];
 
