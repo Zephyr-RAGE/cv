@@ -5,12 +5,12 @@ import { MdEmail } from "react-icons/md";
 import { FiArrowUpRight } from "react-icons/fi";
 
 const Contact = () => {
-  const whatsappNumber = "521XXXXXXXXXX";
+  const whatsappNumber = "522721879905";
   const whatsappMessage =
     "Hola, me interesa conocer más sobre tus servicios de desarrollo.";
 
-  const email = "tuCorreo@gmail.com";
-  const githubProfile = "https://github.com/tuUsuario";
+  const email = "gusmar.mtz04@gmail.com";
+  const githubProfile = "https://github.com/Zephyr-RAGE";
 
   const contacts = [
     {
