@@ -1,0 +1,76 @@
+#Viajero {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem;
+  background: #171719;
+  box-sizing: border-box;
+  text-align: justify;
+}
+
+.contenido-principal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.trabajo-id {
+  width: min(100%);
+  padding: clamp(1.5rem, 4vw, 3rem);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.trabajo-id h1 {
+  margin-bottom: 2rem;
+  color: #ffffff;
+}
+
+.trabajo-id p {
+  color: #d6d6d6;
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  line-height: 1.9;
+  text-align: justify;
+}
+
+/* Tablets */
+
+@media (max-width: 768px) {
+  #Viajero {
+    padding: 2rem 1rem;
+  }
+
+  .trabajo-id {
+    border-radius: 16px;
+  }
+
+  .trabajo-id p {
+    text-align: left;
+  }
+}
+
+/* Celulares */
+
+@media (max-width: 480px) {
+  #Viajero {
+    padding: 1rem;
+  }
+
+  .trabajo-id {
+    padding: 1.25rem;
+    border-radius: 12px;
+  }
+
+  .trabajo-id h1 {
+    margin-bottom: 1.25rem;
+  }
+
+  .trabajo-id p {
+    line-height: 1.7;
+  }
+}

@@ -3,9 +3,9 @@ import ImageGallery from "./ImageGallery";
 import "../Styles/logisticaBackend.css";
 
 const websiteImages = [
-  "/contact.jpeg",
-  "/portfolio.jpeg",
-  "/portafolio1.jpeg",
+  "/backend1.jpeg",
+  "/backend2.jpeg",
+  "/backend3.jpeg",
   // Agrega aquí el resto de imágenes hasta la 23
   // "/Portfolio/Website/4.webp",
   // ...
@@ -22,12 +22,12 @@ const LogisticaBackend = () => {
 
         <p>
           En este proyecto backend se implementó modelos servicios esquema
-          módulo de migraciones conalembique funciones que permitieran filtro de
-          servicios con precios Además del implementación de protección de rutas
-          con middlewares protección de los toques y generación de toques y
-          refresh token para un accesos adecuado para una autenticación y
-          validación de datos correspondiente alineados a los requisitos
-          estándar para la protección de usuarios
+          módulo de migraciones con alembic funciones que permitieran filtro de
+          servicios con precios. Además del implementación de protección de
+          rutas con middlewares protección de los tokens y refresh token para un
+          accesos adecuado para una autenticación y validación de datos
+          correspondiente alineados a los requisitos estándar para la protección
+          de usuarios
           <br />
           <br />
           por ejemplo con el sistema de albimvic con pythonen es un sistema de
